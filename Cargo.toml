@@ -1,0 +1,33 @@
+[package]
+name = "Dioxus"
+version = "0.1.0"
+authors = ["lnwza007 ⚡️<lnwza007@rushmi0.win>"]
+edition = "2021"
+
+
+[lib]
+name = "dioxus_app"
+path = "src/lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { version = "0.6.0", features = ["router"] }
+dioxus-logger = "0.6.0"
+web-sys = "0.3.76"
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
